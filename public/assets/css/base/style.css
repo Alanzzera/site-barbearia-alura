@@ -64,11 +64,11 @@ nav a:hover {
 }
 
 .produtos li:hover h2 {
-	font-size: 34px;
+	font-size: 30px;
 }
 
 .produtos h2 {
-	font-size: 30px;
+	font-size: 28px;
 	font-weight: bold;
 }
 
@@ -84,7 +84,7 @@ nav a:hover {
 
 footer {
 	text-align: center;
-	background: url("bg.jpg");
+	background: url("../../img/bg.jpg");
 	padding: 40px 0;
 }
 
@@ -95,7 +95,8 @@ footer {
 }
 
 form {
-	margin: 40px 0;
+	margin: 40px auto;
+	max-width: 600px;
 }
 
 form label, form legend {
@@ -134,7 +135,7 @@ form label, form legend {
 }
 
 table {
-	margin: 20px 0 40px;
+	margin: 20px auto 40px;
 }
 
 thead {
