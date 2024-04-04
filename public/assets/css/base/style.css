@@ -1,16 +1,23 @@
 body {
 	font-family: 'Montserrat', sans-serif;
+	overflow-x: hidden;
+	/* Mantém a rolagem horizontal oculta */
+}
+
+main {
+	overflow-y: auto;
+	/* Adiciona uma barra de rolagem vertical quando necessário */
 }
 
 header {
 	background: #BBBBBB;
-	padding: 20px 0;
+	padding: 1% 10%;
+	width: calc(100% - width-of-sidebar);
 }
 
 .caixa {
 	position: relative;
-	width: 940px;
-	margin: 0 auto;
+	align-items: center;
 }
 
 nav {
@@ -30,11 +37,12 @@ nav a {
 	font-weight: bold;
 	font-size: 22px;
 	text-decoration: none;
+	transition: border-color 0.3s ease;
 }
 
 nav a:hover {
 	color: #C78C19;
-	text-decoration: underline;
+	font-size: 24px;
 }
 
 .produtos {
@@ -60,7 +68,7 @@ nav a:hover {
 }
 
 .produtos li:active {
-	border-color: #088C19;	
+	border-color: #088C19;
 }
 
 .produtos li:hover h2 {
@@ -83,15 +91,22 @@ nav a:hover {
 }
 
 footer {
+	width: calc(100% - width-of-sidebar);
 	text-align: center;
 	background: url("../../img/bg.jpg");
-	padding: 40px 0;
+	padding: 2%;
+}
+
+footer>a {
+	color: white;
+	filter: brightness(0) invert(1);
+	padding: 0 1%;
 }
 
 .copyright {
 	color: #FFFFFF;
 	font-size: 13px;
-	margin: 20px 0 0;
+	margin: 1vw 1vw;
 }
 
 form {
@@ -99,8 +114,9 @@ form {
 	max-width: 600px;
 }
 
-form label, form legend {
-	display:block;
+form label,
+form legend {
+	display: block;
 	font-size: 20px;
 	margin: 0 0 10px;
 }
@@ -109,7 +125,19 @@ form label, form legend {
 	display: block;
 	margin: 0 0 20px;
 	padding: 10px 25px;
-	width: 50%;
+	width: 90%;
+	border: 1px solid #000;
+	/* Adiciona uma borda sólida de 1px */
+	border-radius: 5px;
+	/* Adiciona um raio de borda de 5px */
+	transition: border-color 0.3s ease;
+	/* Adiciona uma transição suave para a mudança de cor da borda */
+
+}
+
+.input-padrao:hover {
+	border-color: orange;
+	/* Altera a cor da borda ao passar o mouse */
 }
 
 .checkbox {
@@ -117,8 +145,8 @@ form label, form legend {
 }
 
 .enviar {
-	width:40%;
-	padding: 15px 0;
+	width: 100%;
+	padding: 2% 0;
 	background: orange;
 	color: white;
 	font-weight: bold;
@@ -131,7 +159,7 @@ form label, form legend {
 
 .enviar:hover {
 	background: darkorange;
-	transform: scale(1.2);
+	transform: scale(1.05);
 }
 
 table {
@@ -144,7 +172,8 @@ thead {
 	font-weight: bold;
 }
 
-td, th {
+td,
+th {
 	border: 1px solid #000000;
 	padding: 8px 15px;
 }
@@ -152,7 +181,7 @@ td, th {
 
 /* css da página inicial */
 .banner {
-	width:100%;
+	width: 100%;
 }
 
 .titulo-principal {
@@ -239,29 +268,51 @@ td, th {
 	margin: 2em auto;
 }
 
-@media screen and (max-width: 480px) {
-	.caixa, .principal, .conteudo-beneficios, .mapa-conteudo, .video {
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  display: none;
+  transition: opacity 0.5s;
+}
+
+.notification.show {
+  display: block;
+}
+
+.notification.hidden {
+  opacity: 0;
+}
+
+@media screen and (max-width: 750px) {
+
+	.caixa,
+	.principal,
+	.conteudo-beneficios,
+	.mapa-conteudo,
+	.video {
 		width: auto
 	}
 
-	h1 {
-		text-align: center;
-	}
-
 	nav {
-		position: static;
+		position: absolute;
+
 	}
 
 	nav ul {
 		list-style: none;
 		padding: 0;
 	}
-	
+
 	nav ul li {
 		display: block;
 		margin-bottom: 10px;
 	}
-	
+
 	nav ul li a {
 		text-decoration: none;
 		border-bottom: 1px solid #000;
@@ -269,8 +320,14 @@ td, th {
 		display: inline-block;
 	}
 
-	.lista-beneficios, .imagem-beneficios {
-		width: 100%
+	.lista-beneficios,
+	.imagem-beneficios {
+		width: 100%;
+	}
+
+	.produtos {
+		align-items: center;
+		padding: 1% 25%;
 	}
 
 	.produtos li {
@@ -279,4 +336,8 @@ td, th {
 		text-align: center;
 	}
 
+	form {
+		align-items: center;
+		padding: 2%;
+	}
 }
