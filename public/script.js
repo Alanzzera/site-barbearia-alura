@@ -46,5 +46,5 @@ function showNotification() {
   setTimeout(() => {
     notification.classList.remove('show');
     notification.classList.add('hidden');
-  }, 5000);
+  }, 6000);
 }
